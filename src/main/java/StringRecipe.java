@@ -1,14 +1,14 @@
 import java.util.List;
 
 public class StringRecipe {
-    private List<StringTransformer> tranformers;
+    private List<StringTransformer> transformers;
 
     public StringRecipe(List<StringTransformer> tranformers) {
-        this.tranformers = tranformers;
+        this.transformers = tranformers;
     }
 
     public void mix(StringDrink drink){
-        for(StringTransformer transformer : tranformers){
+        for(StringTransformer transformer : transformers){
             transformer.execute(drink);
         }
     }
