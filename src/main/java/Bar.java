@@ -3,14 +3,24 @@ import java.util.List;
 
 public abstract class Bar {
     private List<BarObserver> observers;
+    private boolean happyHour;
 
     public Bar() {
-        this.observers = new ArrayList<>();
+        observers = new ArrayList<>();
+        happyHour = false;
     }
 
-    public abstract boolean isHappyHour();
-    public void startHappyHour() {};
-    public void endHappyHour() {};
+    public boolean isHappyHour() {
+        return happyHour;
+    }
+    public void startHappyHour() {
+        happyHour = true;
+        notifyObservers();
+    };
+    public void endHappyHour() {
+        happyHour = false;
+        notifyObservers();
+    };
     public void addObserver(BarObserver observer) {
         observers.add(observer);
     }
